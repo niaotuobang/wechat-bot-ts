@@ -81,7 +81,12 @@ async function staticReply(aiReply, name, question) {
   if (question === '抽签'){
     const qian = Chouqian()
     const question = `你是一个精通中国传统抽签算命文化的学者，我抽中的签是 ${qian} , 请为我解读一番, 控制在40字以内`
-    const response = await aiReply(question)
+    var response = ''
+    try{
+      response = await aiReply(question)
+    } catch(eirror) {
+      response = '获取解读失败'
+    }
     const reply = `恭喜 @${name} 抽中\n${qian}\nAI解读如下\n${response}`
     return reply
   }
