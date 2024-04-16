@@ -31,6 +31,7 @@ export async function defaultMessage(msg, bot, ServiceType = 'GPT') {
     const question = await msg.mentionText() || content.replace(`${botName}`, '') // 去掉艾特的消息主体
     console.log('🌸🌸🌸 / question: ', question)
     const response = await staticReply(getReply, name, question)
+    console.log(`got response ${response}`)
     // 区分群聊和私聊
     if (isRoom && room) {
       await room.say(response)
