@@ -82,7 +82,7 @@ export async function shardingMessage(message, bot) {
 }
 
 async function staticReply(aiReply, name, question) {
-  if (question === '抽签'){
+  if (question === '抽签' || question === '阿邦抽签'){
     const qian = Chouqian()
     const question = `你是一个精通中国传统抽签算命文化的学者，我抽中的签是 ${qian} , 请为我解读一番, 控制在40字以内`
     var response = ''
