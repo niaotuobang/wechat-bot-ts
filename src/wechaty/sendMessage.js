@@ -32,6 +32,9 @@ export async function defaultMessage(msg, bot, ServiceType = 'GPT') {
     console.log('🌸🌸🌸 / question: ', question)
     const response = await staticReply(getReply, name, question)
     console.log(`got response ${response}`)
+    if (response === '') {
+      return
+    }
     // 区分群聊和私聊
     if (isRoom && room) {
       await room.say(response)
@@ -91,6 +94,7 @@ async function staticReply(aiReply, name, question) {
     const reply = `恭喜 @${name} 抽中\n${qian}\nAI解读如下\n${response}`
     return reply
   }
+  return ''
 }
 
 // 分片长度
