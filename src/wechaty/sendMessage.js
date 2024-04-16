@@ -91,7 +91,7 @@ async function staticReply(aiReply, name, question) {
     } catch(eirror) {
       response = '获取解读失败'
     }
-    const reply = `恭喜 @${name} 抽中\n${qian}\nAI解读如下\n${response}`
+    const reply = `恭喜 @${name} 抽中\n${qian}\n\nAI解读如下\n${response}`
     return reply
   }
   return ''
